@@ -2,6 +2,7 @@ package com.tcoded.playerbountiesplus.command;
 
 import com.google.common.collect.Lists;
 import com.tcoded.playerbountiesplus.PlayerBountiesPlus;
+import com.tcoded.playerbountiesplus.command.admin.PlayerBountiesPlusForceSetCmd;
 import com.tcoded.playerbountiesplus.command.admin.PlayerBountiesPlusReloadCmd;
 import com.tcoded.playerbountiesplus.command.admin.PlayerBountiesPlusVersionCmd;
 import org.bukkit.ChatColor;
@@ -40,6 +41,8 @@ public class PlayerBountiesPlusAdminCmd implements CommandExecutor, TabCompleter
                 return PlayerBountiesPlusReloadCmd.handleCmd(plugin, sender, command, label, args);
             case "version":
                 return PlayerBountiesPlusVersionCmd.handleCmd(plugin, sender, command, label, args);
+            case "force_set":
+                return PlayerBountiesPlusForceSetCmd.handleCmd(plugin, sender, command, label, args);
             default:
                 sendHelpMsg(sender);
                 return true;
@@ -52,6 +55,7 @@ public class PlayerBountiesPlusAdminCmd implements CommandExecutor, TabCompleter
                         "&fAdmin Commands:\n" +
                         "&f/pbp reload &7- Reload the configuration file and the messages.\n" +
                         "&f/pbp version &7- Check the version of the plugin.\n" +
+                        "&f/pbp force_set &7- Force update the bounty points\n" +
                         "&f/pbp help &7- Get this message."
         ));
     }
